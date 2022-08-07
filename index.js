@@ -6,7 +6,12 @@ const morgan = require("morgan");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      "https://62f035ab8e24d65bf0d92747--cheery-puffpuff-376271.netlify.app/",
+  })
+);
 app.use(morgan("dev"));
 
 const port = process.env.PORT || 5000;
