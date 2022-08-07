@@ -16,6 +16,11 @@ app.use(morgan("dev"));
 
 const port = process.env.PORT || 5000;
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.get("/characters", async (req, res) => {
   try {
     const filter = Object.keys(req.query)
